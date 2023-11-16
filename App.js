@@ -1,20 +1,49 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {useState} from 'react';
+import { StyleSheet, Text, View, Button, Image , ScrollView, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
+import player from "./player";
+//import {TouchableOpacity} from "react-native-web";
+import DefaultButton from "./Content/defaultButton";
+import Header from "./Content/header";
+import Player from "./player";
+import AddButton from "./Content/addButton";
+
+
 
 export default function App() {
-  return (
+    const [buttons, setButtons] = useState([]);
+
+    const addButton = () => {
+        setButtons(prevButtons => [...prevButtons, <DefaultButton key={buttons.length} />]);
+    }
+    return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+
+
+
+        <ScrollView>
+            {buttons}
+
+
+        </ScrollView>
+        <AddButton onPress={addButton} />
     </View>
   );
 }
 
+
+
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex:1,
+      paddingTop: 30,
+      paddingHorizontal: 30,
+    backgroundColor: 'azure',
+
+
   },
-});
+
+})
+
