@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import {useState} from 'react';
-import { StyleSheet, Text, View, Button, Image , ScrollView, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Button, Image , ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import player from "./player";
 //import {TouchableOpacity} from "react-native-web";
@@ -8,6 +8,7 @@ import DefaultButton from "./Content/defaultButton";
 import Header from "./Content/header";
 import Player from "./player";
 import AddButton from "./Content/addButton";
+import {TextInput} from "react-native-web";
 
 
 
@@ -24,9 +25,8 @@ export default function App() {
 
         <ScrollView>
             {buttons}
-
-
         </ScrollView>
+
         <AddButton onPress={addButton} />
     </View>
   );
