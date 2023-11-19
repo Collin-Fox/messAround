@@ -7,7 +7,7 @@ export default function DefaultButton({onPress}){
     const [name, addName] = useState('Player Name and Number')
     return(
         <TouchableOpacity
-            onPress={() => addName("Collin")}>
+            onPress={onPress}>
             <View style={styles.item}>
                 <Icon
                     style={styles.iconContainer}

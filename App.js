@@ -4,31 +4,63 @@ import { StyleSheet, Text, View, Button, Image , ScrollView, TouchableOpacity, S
 import Icon from 'react-native-vector-icons/AntDesign';
 import player from "./player";
 //import {TouchableOpacity} from "react-native-web";
+import { NavigationContainer } from '@react-navigation/native';
 import DefaultButton from "./Content/defaultButton";
 import Header from "./Content/header";
 import Player from "./player";
 import AddButton from "./Content/addButton";
 import {TextInput} from "react-native-web";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+function PlayerScreen({navigation}){
+
+    return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 
 
+            <Text>Design In Progress</Text>
 
-export default function App() {
+
+        </View>
+    );
+}
+
+function AddScreen({navigation}){
     const [buttons, setButtons] = useState([]);
 
     const addButton = () => {
-        setButtons(prevButtons => [...prevButtons, <DefaultButton key={buttons.length} />]);
+        setButtons(prevButtons => [...prevButtons, <DefaultButton key={buttons.length} onPress={()=> navigation.navigate('Player')}/>]);
     }
+
+    return(
+        <View style={styles.container}>
+
+            <ScrollView>
+                {buttons}
+
+            </ScrollView>
+
+            <AddButton onPress={addButton} />
+
+
+        </View>
+    );
+}
+
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+
     return (
-    <View style={styles.container}>
+    <NavigationContainer>
+        <Stack.Navigator>
+            <Stack.Screen name={"Select"} component={AddScreen}/>
+            <Stack.Screen name={"Player"} component={PlayerScreen} />
+        </Stack.Navigator>
+
+    </NavigationContainer>
 
 
-
-        <ScrollView>
-            {buttons}
-        </ScrollView>
-
-        <AddButton onPress={addButton} />
-    </View>
   );
 }
 
