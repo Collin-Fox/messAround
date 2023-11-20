@@ -15,12 +15,13 @@ import SelectDropdown from 'react-native-select-dropdown'
 import  {SelectList} from 'react-native-dropdown-select-list'
 import { MultipleSelectList } from 'react-native-dropdown-select-list'
 import SectionListBasics from "./Content/sectionList";
+import PlayerList from "./Content/playerList";
+
+
 
 function PlayerScreen({navigation}){
     return(
-      <Text>
-          Player Screen To Be Designed
-      </Text>
+        <PlayerList></PlayerList>
     );
 }
 function TeamScreen({navigation}){
@@ -79,6 +80,14 @@ const styles = StyleSheet.create({
 
 
   },
+
+    testStyle: {
+      flex: 1,
+        backgroundColor: 'rgba(247,247,247,1.0)',
+
+
+    }
+
 
 })
 
