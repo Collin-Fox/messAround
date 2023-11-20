@@ -15,29 +15,13 @@ import SelectDropdown from 'react-native-select-dropdown'
 import  {SelectList} from 'react-native-dropdown-select-list'
 import { MultipleSelectList } from 'react-native-dropdown-select-list'
 import SectionListBasics from "./Content/sectionList";
+import PlayerList from "./Content/playerList";
+
+
 
 function PlayerScreen({navigation}){
     return(
-        <TouchableOpacity>
-            <View style={styles.test}>
-                <Text>
-                    Test Text
-                </Text>
-                <Text>
-                    Test Text
-                </Text>
-                <Text>
-                    Test Text
-                </Text>
-                <Text>
-                    Test Text
-                </Text>
-                <Text>
-                    Test Text
-                </Text>
-
-            </View>
-        </TouchableOpacity>
+        <PlayerList></PlayerList>
     );
 }
 function TeamScreen({navigation}){
@@ -97,11 +81,13 @@ const styles = StyleSheet.create({
 
   },
 
-    test: {
+    testStyle: {
       flex: 1,
         backgroundColor: 'rgba(247,247,247,1.0)',
 
+
     }
+
 
 })
 
