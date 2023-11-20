@@ -18,9 +18,26 @@ import SectionListBasics from "./Content/sectionList";
 
 function PlayerScreen({navigation}){
     return(
-      <Text>
-          Player Screen To Be Designed
-      </Text>
+        <TouchableOpacity>
+            <View style={styles.test}>
+                <Text>
+                    Test Text
+                </Text>
+                <Text>
+                    Test Text
+                </Text>
+                <Text>
+                    Test Text
+                </Text>
+                <Text>
+                    Test Text
+                </Text>
+                <Text>
+                    Test Text
+                </Text>
+
+            </View>
+        </TouchableOpacity>
     );
 }
 function TeamScreen({navigation}){
@@ -79,6 +96,12 @@ const styles = StyleSheet.create({
 
 
   },
+
+    test: {
+      flex: 1,
+        backgroundColor: 'rgba(247,247,247,1.0)',
+
+    }
 
 })
 
