@@ -9,18 +9,11 @@ export default function DefaultButton({onPress}){
         <TouchableOpacity
             onPress={onPress}>
             <View style={styles.item}>
-                <Icon
-                    style={styles.iconContainer}
-                    name={"infocirlceo"}
-                    size={30}
-                    color={'white'}
-                    backgroundColor={'dodgerblue'}
-                >
                     <Text
                         style={styles.textContainer}>
                         {name}
                     </Text>
-                </Icon>
+
             </View>
         </TouchableOpacity>
 
@@ -44,8 +37,8 @@ const  styles = StyleSheet.create({
         alignSelf: 'center'
     },
     textContainer:{
-        fontWeight: 'bold',
-        fontSize: 30,
+        fontSize: 25,
+        color: 'white'
 
     }
 

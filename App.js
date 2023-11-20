@@ -11,38 +11,39 @@ import Player from "./player";
 import AddButton from "./Content/addButton";
 import {TextInput} from "react-native-web";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SelectDropdown from 'react-native-select-dropdown'
+import  {SelectList} from 'react-native-dropdown-select-list'
+import { MultipleSelectList } from 'react-native-dropdown-select-list'
+import SectionListBasics from "./Content/sectionList";
 
 function PlayerScreen({navigation}){
-
+    return(
+      <Text>
+          Player Screen To Be Designed
+      </Text>
+    );
+}
+function TeamScreen({navigation}){
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-
-
-            <Text>Design In Progress</Text>
-
-
-        </View>
+        <SectionListBasics
+        onPress={()=> navigation.navigate('Player')}/>
     );
 }
 
 function AddScreen({navigation}){
+    //Initial loading screen where the user will have an option to add more players
     const [buttons, setButtons] = useState([]);
-
     const addButton = () => {
-        setButtons(prevButtons => [...prevButtons, <DefaultButton key={buttons.length} onPress={()=> navigation.navigate('Player')}/>]);
+        setButtons(prevButtons => [...prevButtons, <DefaultButton key={buttons.length}
+                                                                  onPress={()=> navigation.navigate('Team')}/>]);
     }
 
     return(
         <View style={styles.container}>
-
             <ScrollView>
                 {buttons}
-
             </ScrollView>
-
             <AddButton onPress={addButton} />
-
-
         </View>
     );
 }
@@ -55,7 +56,9 @@ export default function App() {
     <NavigationContainer>
         <Stack.Navigator>
             <Stack.Screen name={"Select"} component={AddScreen}/>
-            <Stack.Screen name={"Player"} component={PlayerScreen} />
+            <Stack.Screen name={"Team"} component={TeamScreen} />
+            <Stack.Screen name={"Player"} component={PlayerScreen}/>
+
         </Stack.Navigator>
 
     </NavigationContainer>
