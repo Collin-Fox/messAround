@@ -3,6 +3,7 @@ import {useState} from 'react';
 import { StyleSheet, Text, View, Button, Image , ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import player from "./player";
+
 //import {TouchableOpacity} from "react-native-web";
 import { NavigationContainer } from '@react-navigation/native';
 import DefaultButton from "./Content/defaultButton";
@@ -16,7 +17,6 @@ import  {SelectList} from 'react-native-dropdown-select-list'
 import { MultipleSelectList } from 'react-native-dropdown-select-list'
 import SectionListBasics from "./Content/sectionList";
 import PlayerList from "./Content/playerList";
-
 
 
 function PlayerScreen({navigation}){
