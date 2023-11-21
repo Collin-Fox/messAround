@@ -3,6 +3,7 @@ import {useState} from 'react';
 import { StyleSheet, Text, View, Button, Image , ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import player from "./player";
+
 //import {TouchableOpacity} from "react-native-web";
 import { NavigationContainer } from '@react-navigation/native';
 import DefaultButton from "./Content/defaultButton";
@@ -16,18 +17,27 @@ import  {SelectList} from 'react-native-dropdown-select-list'
 import { MultipleSelectList } from 'react-native-dropdown-select-list'
 import SectionListBasics from "./Content/sectionList";
 import PlayerList from "./Content/playerList";
+import '/'
 
-
-
-function PlayerScreen({navigation}){
+console.log("HELLO")
+function PlayerScreen({navigation, route}){
+    const d = route.params.orange;
+    console.log(d)
     return(
-        <PlayerList></PlayerList>
+        <PlayerList teamabv={d}></PlayerList>
     );
 }
 function TeamScreen({navigation}){
+
+
+
     return (
         <SectionListBasics
-        onPress={()=> navigation.navigate('Player')}/>
+        onPress={() => [navigation.navigate('Player', {
+            //From here need to get the item that was clicked and pass the team abv through route everything else works
+            name: "CLE",
+            orange: 'NYG'
+        }), console.log(this.props.item)]}/>
     );
 }
 
@@ -36,7 +46,7 @@ function AddScreen({navigation}){
     const [buttons, setButtons] = useState([]);
     const addButton = () => {
         setButtons(prevButtons => [...prevButtons, <DefaultButton key={buttons.length}
-                                                                  onPress={()=> navigation.navigate('Team')}/>]);
+                                                                  onPress={() =>navigation.navigate('Team')}/>]);
     }
 
     return(
@@ -45,6 +55,7 @@ function AddScreen({navigation}){
                 {buttons}
             </ScrollView>
             <AddButton onPress={addButton} />
+
         </View>
     );
 }

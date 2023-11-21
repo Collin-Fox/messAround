@@ -1,7 +1,14 @@
 import React from 'react';
-import {SectionList, StyleSheet, Text, View} from 'react-native';
+import {Button, ScrollView, SectionList, StyleSheet, Text, View} from 'react-native';
 import {TouchableOpacity} from "react-native";
 import axios from "axios";
+//import axios from 'axios';
+import {useState} from 'react'
+import PlayerModule from "./playerModule";
+
+
+
+
 
 const styles = StyleSheet.create({
     container: {
@@ -24,44 +31,81 @@ const styles = StyleSheet.create({
         height: 44,
     },
 });
+function getData(teamAbv) {
+    const options = {
+        method: 'GET',
+        url: 'https://tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com/getNFLTeamRoster',
+        params: {teamAbv: teamAbv},
+        headers: {
+            'X-RapidAPI-Key': '9644ba66f6msh91f9bbb1863cc23p109ea5jsn2b480abdcd7d',
+            'X-RapidAPI-Host': 'tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com'
+        }
+    };
+    return options
+}
 
 
 
-const PlayerList = ({ onPress }) => {
+
+
+
+const PlayerList = ({ teamabv }) => {
+
+    //Send the request for the api backend
+    const [player, setPlayer] = useState([])
+    function whenCalled() {
+        const apiCall =  async (parameter) =>{
+
+            const options = {
+                method: 'GET',
+                url: 'https://tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com/getNFLTeamRoster',
+                params: {teamAbv: parameter},
+                headers: {
+                    'X-RapidAPI-Key': '9644ba66f6msh91f9bbb1863cc23p109ea5jsn2b480abdcd7d',
+                    'X-RapidAPI-Host': 'tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com'
+                }
+            };
+            let x = []
+            const response = await axios.request(options)
+            return response
+        }
+        const addPlayer = (name) => {
+
+            setPlayer(prevPlayers => [...prevPlayers, <PlayerModule
+            names ={name}/>])
+        }
+
+
+        const players = apiCall(teamabv).then(
+            res => {
+                const size = res.data.body.roster.length
+                const arr = res.data.body.roster
+
+
+                for(let i = 0; i < size; i++){
+
+                    addPlayer(String(arr[i].espnName))
+                }
+
+
+            }
+        ).catch(
+
+        )
+
+
+
+
+    }
+
 
     return (
         <View style={styles.container}>
-            <SectionList
-                sections={[
-                    {
-                        title: 'QB', data: [
-                            'Joe Flacco',
-                            'DTR'
-                        ]},
-                    {
-                        title: 'RB', data: [
-                            'Jerome Ford',
-                            'Kareem Hunt'
-                        ]
-                    },
-                    {
-                        title: 'WR', data: [
-                            'Amari Cooper',
-                            'Elijah Moore',
-                        ]
-                    },
-                    {
-                        title: 'TE', data: [
-                            'David Njoku'
-                        ]
-                    }
-                ]}
-                renderItem={({item}) => <TouchableOpacity><Text onPress={onPress} style={styles.item}>{item}</Text></TouchableOpacity>}
-                renderSectionHeader={({section}) => (
-                    <Text style={styles.sectionHeader}>{section.title}</Text>
-                )}
-                keyExtractor={item => `basicListEntry-${item}`}
-            />
+            <ScrollView>
+                <Button onPress = {() => [whenCalled(), alert("Hello")]}title={"Click ME"}/>
+                {player}
+
+            </ScrollView>
         </View>
     );
 };

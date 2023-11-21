@@ -1,6 +1,8 @@
 import React from 'react';
 import {SectionList, StyleSheet, Text, View} from 'react-native';
 import {TouchableOpacity} from "react-native";
+import axios from "axios";
+
 
 const styles = StyleSheet.create({
     container: {
@@ -24,97 +26,55 @@ const styles = StyleSheet.create({
     },
 });
 
-const SectionListBasics = ({ onPress }) => {
+
+
+
+
+const SectionListBasics = ({ onPress, props}) => {
+
     return (
         <View style={styles.container}>
             <SectionList
+
                 sections={[
-                    {title: '#', data: ['49ers']},
                     {
-                        title: 'B', data: [
-                            'Bears',
-                            'Bengals',
-                            'Bills',
-                            'Broncos',
-                            'Browns',
-                            'Buccaneers'
+                         data: [
+                            'NE',
+                            'LAC',
+                            'KC',
+                            'ATL',
+                            'HOU',
+                            'CLE',
+                            'DAL',
+                            'ARI',
+                            'TEN',
+                            'CHI',
+                            'SF',
+                            'TB',
+                            'NYG',
+                            'PHI',
+                            'CAR',
+                            'BUF',
+                            'WSH',
+                            'NO',
+                            'LAR',
+                            'PIT',
+                            'CIN',
+                            'DET',
+                            'BAL',
+                            'MIA',
+                            'SEA',
+                            'MIN',
+                            'NYJ',
+                            'GB',
+                            'LV',
+                            'DEN',
+                            'JAX',
+                            'IND'
                         ]},
-                    {
-                        title: 'C', data: [
-                            'Cardinals',
-                            'Chargers',
-                            'Chiefs',
-                            'Colts',
-                            'Commanders',
-                            'Cowboys'
-                        ]
-                    },
-                    {
-                        title: 'D', data: [
-                            'Dolphins'
-                        ]
-                    },
-                    {
-                        title: 'E', data:[
-                            'Eagles'
-                        ]
-                    },
-                    {
-                        title: 'F', data:[
-                            'Falcons'
-                        ]
-                    },
-                    {
-                        title: 'G', data:[
-                            'Giants'
-                        ]
-                    },
-                    {
-                        title: 'J', data:[
-                            'Jaguars',
-                            'Jets'
-                        ]
-                    },
-                    {
-                        title: 'L', data:[
-                            'Lions'
-                        ]
-                    },
-                    {
-                        title: 'P', data:[
-                            'Packers',
-                            'Panthers',
-                            'Patriots',
-                        ]
-                    },
-                    {
-                        title: 'R', data:[
-                            'Raiders',
-                            'Rams',
-                            'Ravens'
-                        ]
-                    },
-                    {
-                        title: 'S', data:[
-                            'Saints',
-                            'Seahawks',
-                            'Steelers'
-                        ]
-                    },
-                    {
-                        title: 'T', data:[
-                            'Texans',
-                            'Titans'
-                        ]
-                    },
-                    {
-                        title: 'V',
-                        data: [
-                            'Vikings'
-                        ],
-                    },
+
                 ]}
-                renderItem={({item}) => <TouchableOpacity><Text onPress={onPress} style={styles.item}>{item}</Text></TouchableOpacity>}
+                renderItem={({item}) => <TouchableOpacity><Text onPress={onPress}  style={styles.item}>{item}</Text></TouchableOpacity>}
                 renderSectionHeader={({section}) => (
                     <Text style={styles.sectionHeader}>{section.title}</Text>
                 )}
