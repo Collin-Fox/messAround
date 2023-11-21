@@ -1,4 +1,5 @@
-const axios = require('axios');
+import React from "react";
+import axios from "axios";
 async function getRoster(teamAbv){
     let toReturn = "";
     const options = {
@@ -8,8 +9,7 @@ async function getRoster(teamAbv){
         headers: {
             'X-RapidAPI-Key': '9644ba66f6msh91f9bbb1863cc23p109ea5jsn2b480abdcd7d',
             'X-RapidAPI-Host': 'tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com'
-        },
-
+        }
     };
 
     try {
@@ -23,5 +23,4 @@ async function getRoster(teamAbv){
     return toReturn;
 
 }
-
-getRoster('CLE')
+getRoster('CHI')

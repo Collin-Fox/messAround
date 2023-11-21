@@ -17,9 +17,11 @@ import  {SelectList} from 'react-native-dropdown-select-list'
 import { MultipleSelectList } from 'react-native-dropdown-select-list'
 import SectionListBasics from "./Content/sectionList";
 import PlayerList from "./Content/playerList";
+import '/'
 
-
+console.log("HELLO")
 function PlayerScreen({navigation}){
+
     return(
         <PlayerList></PlayerList>
     );
@@ -45,6 +47,7 @@ function AddScreen({navigation}){
                 {buttons}
             </ScrollView>
             <AddButton onPress={addButton} />
+
         </View>
     );
 }
