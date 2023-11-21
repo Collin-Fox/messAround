@@ -30,13 +30,15 @@ const styles = StyleSheet.create({
 
 
 
-const SectionListBasics = ({ onPress }) => {
+const SectionListBasics = ({ onPress, props}) => {
+
     return (
         <View style={styles.container}>
             <SectionList
+
                 sections={[
                     {
-                        title: 'Teams', data: [
+                         data: [
                             'NE',
                             'LAC',
                             'KC',
@@ -72,7 +74,7 @@ const SectionListBasics = ({ onPress }) => {
                         ]},
 
                 ]}
-                renderItem={({item}) => <TouchableOpacity><Text onPress={onPress} style={styles.item}>{item}</Text></TouchableOpacity>}
+                renderItem={({item}) => <TouchableOpacity><Text onPress={onPress}  style={styles.item}>{item}</Text></TouchableOpacity>}
                 renderSectionHeader={({section}) => (
                     <Text style={styles.sectionHeader}>{section.title}</Text>
                 )}

@@ -56,8 +56,6 @@ const PlayerList = ({ teamabv }) => {
     function whenCalled() {
         const apiCall =  async (parameter) =>{
 
-
-
             const options = {
                 method: 'GET',
                 url: 'https://tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com/getNFLTeamRoster',
@@ -72,27 +70,27 @@ const PlayerList = ({ teamabv }) => {
             return response
         }
         const addPlayer = (name) => {
-            console.log("SO CLOSE")
+
             setPlayer(prevPlayers => [...prevPlayers, <PlayerModule
             names ={name}/>])
         }
 
 
-        const players = apiCall('CHI').then(
+        const players = apiCall(teamabv).then(
             res => {
                 const size = res.data.body.roster.length
                 const arr = res.data.body.roster
 
-                console.log("THIS IS WORKING")
+
                 for(let i = 0; i < size; i++){
-                    console.log(arr[i].espnName)
+
                     addPlayer(String(arr[i].espnName))
                 }
 
 
             }
         ).catch(
-            console.log("PISS")
+
         )
 
 
@@ -100,8 +98,7 @@ const PlayerList = ({ teamabv }) => {
 
     }
 
-    console.log("TRACER")
-    console.log(player)
+
     return (
         <View style={styles.container}>
             <ScrollView>

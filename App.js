@@ -20,16 +20,24 @@ import PlayerList from "./Content/playerList";
 import '/'
 
 console.log("HELLO")
-function PlayerScreen({navigation}){
-
+function PlayerScreen({navigation, route}){
+    const d = route.params.orange;
+    console.log(d)
     return(
-        <PlayerList></PlayerList>
+        <PlayerList teamabv={d}></PlayerList>
     );
 }
 function TeamScreen({navigation}){
+
+
+
     return (
         <SectionListBasics
-        onPress={()=> navigation.navigate('Player')}/>
+        onPress={() => [navigation.navigate('Player', {
+            //From here need to get the item that was clicked and pass the team abv through route everything else works
+            name: "CLE",
+            orange: 'NYG'
+        }), console.log(this.props.item)]}/>
     );
 }
 
@@ -38,7 +46,7 @@ function AddScreen({navigation}){
     const [buttons, setButtons] = useState([]);
     const addButton = () => {
         setButtons(prevButtons => [...prevButtons, <DefaultButton key={buttons.length}
-                                                                  onPress={()=> navigation.navigate('Team')}/>]);
+                                                                  onPress={() =>navigation.navigate('Team')}/>]);
     }
 
     return(
