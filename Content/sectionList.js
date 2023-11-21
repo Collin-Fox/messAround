@@ -6,9 +6,18 @@ import axios from "axios";
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        paddingTop: 22,
-        marginBottom: 50
+
+        width: 375,
+        height: 75,
+        borderRadius: 50,
+        padding: 20,
+        alignContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'dodgerblue',
+        marginBottom: 2,
+        marginTop: 35,
+        alignSelf: 'center'
+
     },
     sectionHeader: {
         paddingTop: 2,
@@ -23,6 +32,7 @@ const styles = StyleSheet.create({
         padding: 10,
         fontSize: 18,
         height: 44,
+        color: 'white'
     },
 });
 
@@ -30,57 +40,18 @@ const styles = StyleSheet.create({
 
 
 
-const SectionListBasics = ({ onPress, props}) => {
+const SectionListBasics = ({ onPress, teamName}) => {
 
     return (
-        <View style={styles.container}>
-            <SectionList
+        <TouchableOpacity onPress = {onPress}>
+            <View style={styles.container}
+            >
+                <Text style = {styles.item}>
+                    {teamName}
+                </Text>
+            </View>
+        </TouchableOpacity>
 
-                sections={[
-                    {
-                         data: [
-                            'NE',
-                            'LAC',
-                            'KC',
-                            'ATL',
-                            'HOU',
-                            'CLE',
-                            'DAL',
-                            'ARI',
-                            'TEN',
-                            'CHI',
-                            'SF',
-                            'TB',
-                            'NYG',
-                            'PHI',
-                            'CAR',
-                            'BUF',
-                            'WSH',
-                            'NO',
-                            'LAR',
-                            'PIT',
-                            'CIN',
-                            'DET',
-                            'BAL',
-                            'MIA',
-                            'SEA',
-                            'MIN',
-                            'NYJ',
-                            'GB',
-                            'LV',
-                            'DEN',
-                            'JAX',
-                            'IND'
-                        ]},
-
-                ]}
-                renderItem={({item}) => <TouchableOpacity><Text onPress={onPress}  style={styles.item}>{item}</Text></TouchableOpacity>}
-                renderSectionHeader={({section}) => (
-                    <Text style={styles.sectionHeader}>{section.title}</Text>
-                )}
-                keyExtractor={item => `basicListEntry-${item}`}
-            />
-        </View>
     );
 };
 

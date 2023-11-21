@@ -17,27 +17,237 @@ import  {SelectList} from 'react-native-dropdown-select-list'
 import { MultipleSelectList } from 'react-native-dropdown-select-list'
 import SectionListBasics from "./Content/sectionList";
 import PlayerList from "./Content/playerList";
-import '/'
+
 
 console.log("HELLO")
 function PlayerScreen({navigation, route}){
-    const d = route.params.orange;
+    const d = route.params.infoSend;
     console.log(d)
     return(
-        <PlayerList teamabv={d}></PlayerList>
+        <PlayerList onPress = {() => navigation.navigate('Select')}teamabv={d}></PlayerList>
     );
 }
 function TeamScreen({navigation}){
+    const [teams, setTeams] = useState([])
+    const addTeam = (teamName) =>{
+        setTeams(prevTeams => [...prevTeams, <SectionListBasics teamName={teamName}/>])
+    }
+    const teamList =
+            [
+                'NE',
+                'LAC',
+                'KC',
+
+
+            ]
+
+
 
 
 
     return (
-        <SectionListBasics
-        onPress={() => [navigation.navigate('Player', {
-            //From here need to get the item that was clicked and pass the team abv through route everything else works
-            name: "CLE",
-            orange: 'NYG'
-        }), console.log(this.props.item)]}/>
+        <ScrollView>
+
+            <SectionListBasics
+                teamName={"CLE"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'CLE'
+                })}/>
+
+            <SectionListBasics
+                teamName={"CHI"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'CHI'
+                })}/>
+
+            <SectionListBasics
+                teamName={"IND"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'IND'
+                })}/>
+            <SectionListBasics
+                teamName={"JAX"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'JAX'
+                })}/>
+            <SectionListBasics
+                teamName={"DEN"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'DEN'
+                })}/>
+            <SectionListBasics
+                teamName={"LV"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'LV'
+                })}/>
+            <SectionListBasics
+                teamName={"GB"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'GB'
+                })}/>
+            <SectionListBasics
+                teamName={"NYJ"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'NYJ'
+                })}/>
+            <SectionListBasics
+                teamName={"IND"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'IND'
+                })}/>
+            <SectionListBasics
+                teamName={"SEA"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'SEA'
+                })}/>
+            <SectionListBasics
+                teamName={"MIN"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'MIN'
+                })}/>
+            <SectionListBasics
+                teamName={"CIN"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'CIN'
+                })}/>
+            <SectionListBasics
+                teamName={"DET"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'DET'
+                })}/>
+            <SectionListBasics
+                teamName={"BAL"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'BAL'
+                })}/>
+            <SectionListBasics
+                teamName={"NO"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'NO'
+                })}/>
+            <SectionListBasics
+                teamName={"LAR"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'LAR'
+                })}/>
+            <SectionListBasics
+                teamName={"PIT"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'PIT'
+                })}/>
+            <SectionListBasics
+                teamName={"CAR"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'CAR'
+                })}/>
+            <SectionListBasics
+                teamName={"BUF"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'BUF'
+                })}/>
+            <SectionListBasics
+                teamName={"WAS"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'WSH'
+                })}/>
+            <SectionListBasics
+                teamName={"TB"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'TB'
+                })}/>
+            <SectionListBasics
+                teamName={"NYG"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'NYG'
+                })}/>
+            <SectionListBasics
+                teamName={"PHI"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'PHI'
+                })}/>
+            <SectionListBasics
+                teamName={"ARI"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'ARI'
+                })}/>
+            <SectionListBasics
+                teamName={"TEN"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'TEN'
+                })}/>
+            <SectionListBasics
+                teamName={"SF"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'SF'
+                })}/>
+            <SectionListBasics
+                teamName={"DAL"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'DAL'
+                })}/>
+            <SectionListBasics
+                teamName={"HOU"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'HOU'
+                })}/>
+            <SectionListBasics
+                teamName={"ATL"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'ATL'
+                })}/>
+            <SectionListBasics
+                teamName={"NE"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'NE'
+                })}/>
+            <SectionListBasics
+                teamName={"LAC"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'LAC'
+                })}/>
+            <SectionListBasics
+                teamName={"KC"}
+                onPress={() => navigation.navigate('Player', {
+                    //From here need to get the item that was clicked and pass the team abv through route everything else works
+                    infoSend: 'KC'
+                })}/>
+
+
+
+
+        </ScrollView>
+
     );
 }
 

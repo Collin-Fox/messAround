@@ -98,11 +98,12 @@ const PlayerList = ({ teamabv }) => {
 
     }
 
-
+    //whenCalled() uncomment causes api explosion not good
     return (
+
         <View style={styles.container}>
             <ScrollView>
-                <Button onPress = {() => [whenCalled(), alert("Hello")]}title={"Click ME"}/>
+                <Button title={"Click ME"}/>
                 {player}
 
             </ScrollView>
