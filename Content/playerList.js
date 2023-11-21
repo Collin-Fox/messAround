@@ -1,6 +1,7 @@
 import React from 'react';
 import {SectionList, StyleSheet, Text, View} from 'react-native';
 import {TouchableOpacity} from "react-native";
+import axios from "axios";
 
 const styles = StyleSheet.create({
     container: {
@@ -23,6 +24,8 @@ const styles = StyleSheet.create({
         height: 44,
     },
 });
+
+
 
 const PlayerList = ({ onPress }) => {
 
