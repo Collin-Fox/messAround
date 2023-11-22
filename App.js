@@ -19,33 +19,19 @@ import SectionListBasics from "./Content/sectionList";
 import PlayerList from "./Content/playerList";
 
 
-console.log("HELLO")
+
 function PlayerScreen({navigation, route}){
-    const d = route.params.infoSend;
-    console.log(d)
+    //Gets the team abv data from the team screen and passes it into a function that sends an HTTP request to the backend
+    const teamAbv = route.params.infoSend;
     return(
-        <PlayerList onPress = {() => navigation.navigate('Select')}teamabv={d}></PlayerList>
+        <PlayerList onPress = {() => navigation.navigate('Select')}teamabv={teamAbv}></PlayerList>
     );
 }
 function TeamScreen({navigation}){
-    const [teams, setTeams] = useState([])
-    const addTeam = (teamName) =>{
-        setTeams(prevTeams => [...prevTeams, <SectionListBasics teamName={teamName}/>])
-    }
-    const teamList =
-            [
-                'NE',
-                'LAC',
-                'KC',
-
-
-            ]
-
-
-
-
-
     return (
+        //When useState is used too many renders are done and overloads the application
+        //This needs to be fixed
+        //This is the current solution not good
         <ScrollView>
 
             <SectionListBasics
@@ -247,20 +233,27 @@ function TeamScreen({navigation}){
 
 
         </ScrollView>
-
     );
 }
 
-function AddScreen({navigation}){
+function AddScreen({navigation, route}){
     //Initial loading screen where the user will have an option to add more players
     const [buttons, setButtons] = useState([]);
+
+
+
+
     const addButton = () => {
+        //Function to add more buttons to the screen when pressed
         setButtons(prevButtons => [...prevButtons, <DefaultButton key={buttons.length}
                                                                   onPress={() =>navigation.navigate('Team')}/>]);
+
     }
 
     return(
+
         <View style={styles.container}>
+
             <ScrollView>
                 {buttons}
             </ScrollView>
@@ -273,16 +266,14 @@ function AddScreen({navigation}){
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-
+    //Current handler for all the screens on the app
     return (
     <NavigationContainer>
         <Stack.Navigator>
             <Stack.Screen name={"Select"} component={AddScreen}/>
             <Stack.Screen name={"Team"} component={TeamScreen} />
             <Stack.Screen name={"Player"} component={PlayerScreen}/>
-
         </Stack.Navigator>
-
     </NavigationContainer>
 
 
@@ -291,13 +282,13 @@ export default function App() {
 
 
 
-
+//Style sheets for the application
 const styles = StyleSheet.create({
   container: {
     flex:1,
       paddingTop: 30,
       paddingHorizontal: 30,
-    backgroundColor: 'azure',
+    backgroundColor: 'rgba(247,247,247,1.0)'
 
 
   },
@@ -307,7 +298,11 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(247,247,247,1.0)',
 
 
-    }
+    },
+    tinyLogo: {
+        width: 50,
+        height: 50,
+    },
 
 
 })

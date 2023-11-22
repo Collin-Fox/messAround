@@ -1,18 +1,31 @@
 import React from 'react'
 import Icon from "react-native-vector-icons/AntDesign";
 import player from "../player";
-import {Text, TouchableOpacity, View, StyleSheet} from "react-native";
+import {Text, TouchableOpacity, View, StyleSheet, Image} from "react-native";
 import {useState} from 'react';
-export default function PlayerModule({onPress, names}){
+export default function PlayerModule({onPress, names, photo, jersey, pos}){
 
     return(
 
         <TouchableOpacity onPress = {onPress}>
-            <View style={styles.container}
-            >
+            <View style={styles.container}>
+                <Image
+                    style = {styles.tinyLogo}
+                    source={{
+                        uri: photo,
+                    }}
+                />
+                <Text style = {styles.item}>
+                    #
+                    {jersey}
+                </Text>
                 <Text style = {styles.item}>
                     {names}
                 </Text>
+                <Text style = {styles.item}>
+                    {pos}
+                </Text>
+
             </View>
         </TouchableOpacity>
 
@@ -22,7 +35,8 @@ export default function PlayerModule({onPress, names}){
 const  styles = StyleSheet.create({
 
     container: {
-
+        flex: 1,
+        flexDirection: 'row',
         width: 375,
         height: 75,
         borderRadius: 50,
@@ -46,9 +60,13 @@ const  styles = StyleSheet.create({
     },
     item: {
 
-        fontSize: 30,
-
+        fontSize: 20,
+        padding: 10,
         color: 'white'
+    },
+    tinyLogo: {
+        width: 50,
+        height: 50,
     },
 });
 
