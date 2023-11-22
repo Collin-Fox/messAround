@@ -14,6 +14,8 @@ import  {SelectList} from 'react-native-dropdown-select-list'
 import { MultipleSelectList } from 'react-native-dropdown-select-list'
 import SectionListBasics from "./Content/sectionList";
 import PlayerList from "./Content/playerList";
+import * as SQLite from 'expo-sqlite';
+
 
 
 function PlayerScreen({navigation, route}){
@@ -234,17 +236,6 @@ function TeamScreen({navigation}){
 }
 
 function AddScreen({navigation, route}){
-    //const pClick = route.params.playerClicked
-   // console.log(pClick)
-
-    //Fetching the last clicked player and defaulting to no text if no player cicked
-    let buttonText = "NOTHING"
-    try{
-        buttonText = route.params.playerClicked
-    }catch (err){
-        buttonText = "NOTTA"
-    }
-
 
     //Initial loading screen where the user will have an option to add more players
     const [buttons, setButtons] = useState([]);
@@ -273,7 +264,14 @@ function AddScreen({navigation, route}){
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-    //Current handler for all the screens on the app
+    try {
+        console.log('Worked')
+
+    }catch{
+
+    }
+
+
     return (
     <NavigationContainer>
         <Stack.Navigator>

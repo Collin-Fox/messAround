@@ -28,7 +28,8 @@
     "react-native-screens": "~3.22.0",
     "react-native-select-dropdown": "^3.4.0",
     "react-native-web": "~0.19.6",
-    "sqlite3": "^5.1.6"
+    "sqlite3": "^5.1.6",
+    "expo-sqlite": "~11.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
