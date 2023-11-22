@@ -3,6 +3,7 @@ import Icon from "react-native-vector-icons/AntDesign";
 import player from "../player";
 import {Text, TouchableOpacity, View, StyleSheet, Image} from "react-native";
 import {useState} from 'react';
+
 export default function PlayerModule({onPress, names, photo, jersey, pos}){
 
     return(

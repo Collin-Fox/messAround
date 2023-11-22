@@ -1,10 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import {useState} from 'react';
-import { StyleSheet, Text, View, Button, Image , ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign';
+import { StyleSheet, Text, View, Button, Image , ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';import Icon from 'react-native-vector-icons/AntDesign';
 import player from "./player";
-
-//import {TouchableOpacity} from "react-native-web";
 import { NavigationContainer } from '@react-navigation/native';
 import DefaultButton from "./Content/defaultButton";
 import Header from "./Content/header";
@@ -19,12 +16,12 @@ import SectionListBasics from "./Content/sectionList";
 import PlayerList from "./Content/playerList";
 
 
-
 function PlayerScreen({navigation, route}){
     //Gets the team abv data from the team screen and passes it into a function that sends an HTTP request to the backend
     const teamAbv = route.params.infoSend;
     return(
-        <PlayerList onPress = {() => navigation.navigate('Select')}teamabv={teamAbv}></PlayerList>
+        <PlayerList onPress = {() => navigation.navigate('Select', {playerClicked: "HELLO"})}teamabv={teamAbv}></PlayerList>
+
     );
 }
 function TeamScreen({navigation}){
@@ -237,18 +234,28 @@ function TeamScreen({navigation}){
 }
 
 function AddScreen({navigation, route}){
+    //const pClick = route.params.playerClicked
+   // console.log(pClick)
+
+    //Fetching the last clicked player and defaulting to no text if no player cicked
+    let buttonText = "NOTHING"
+    try{
+        buttonText = route.params.playerClicked
+    }catch (err){
+        buttonText = "NOTTA"
+    }
+
+
     //Initial loading screen where the user will have an option to add more players
     const [buttons, setButtons] = useState([]);
-
-
-
-
     const addButton = () => {
         //Function to add more buttons to the screen when pressed
         setButtons(prevButtons => [...prevButtons, <DefaultButton key={buttons.length}
                                                                   onPress={() =>navigation.navigate('Team')}/>]);
 
     }
+
+
 
     return(
 

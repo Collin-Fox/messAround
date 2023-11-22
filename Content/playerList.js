@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button, ScrollView, SectionList, StyleSheet, Text, View} from 'react-native';
-import {TouchableOpacity} from "react-native";
+import {TouchableOpacity, AsyncStorage} from "react-native";
 import axios from "axios";
 import {useState} from 'react'
 import PlayerModule from "./playerModule";
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const PlayerList = ({ teamabv, onPress}) => {
+const PlayerList = ({ pName, teamabv, onPress}) => {
 
     //useState for players by team
     const [player, setPlayer] = useState([])
